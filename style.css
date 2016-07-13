@@ -1,0 +1,21 @@
+.bar {
+  font: 10px sans-serif;
+  background-color: #e74c3c;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  height: 40px;
+  line-height: 35px;
+  color: white;
+  margin-left: 120px;
+}
+
+.vote-btn {
+  border: solid 1px #20538D;
+  height: 40px;
+  width: 100px;
+  float: left;
+  line-height: 35px;
+  color: blue;
+  font-size: 10px;
+}

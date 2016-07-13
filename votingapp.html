@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Realtime survey with PubNub and D3JS</title>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="http://cdn.pubnub.com/pubnub-3.4.4.js"></script>
+    <script type="text/javascript" src="https://www.pubnub.github.io/eon/v/eon/0.0.10/eon.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.pubnub.github.io/eon/v/eon/0.0.10/eon.css"/>
+    <script src="quiz.js"></script> 
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+    <style>
+        #button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            left: 10%;
+            top: 10%;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            height: 50px;
+            line-height: 50px; /*Must be the same as height to vertically align to the middle*/
+        }
+        #block {
+            height:500px;
+            text-align: center;
+        }
+
+        /* The ghost, nudged to maintain perfect centering */
+        #block:before {
+            content:'';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -0.25em;   
+        }
+
+        /* The element to be centered, can be any width or height */
+        #centered {
+            display: inline-block;
+            vertical-align: middle;
+            width: 30%;
+            left:50%;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <h2>Who would you vote for president?</h2>
+    </div>
+    <div id="chart"></div>
+    <div id = "block">
+        <div id = "centered">
+          <script>
+          var pollOptions = [
+              { name: "Mushu", numVotes: 0 },
+              { name: "Hamilton", numVotes: 0 },
+              { name: "Stephen", numVotes: 0 },
+              { name: "Tomomi", numVotes: 0 },
+              { name: "Erlich", numVotes: 0 }
+          ];
+          for(var i = 0; i < pollOptions.length; i++) {
+            var b = document.createElement('BUTTON');
+            b.setAttribute('id', 'button');
+            b.setAttribute('width', '30%');
+            b.innerHTML = pollOptions[i].name;
+            var t = document.createTextNode(pollOptions[i].name);
+            document.body.appendChild(b);
+
+            }
+          </script>
+        </div>
+    </div>
+  </body>
+</html>
