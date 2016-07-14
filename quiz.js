@@ -61,7 +61,7 @@
             var buttonsArr = [];
             for(var i = 0; i < pollOptions.length; i++) {
                 var b = document.createElement('BUTTON');
-                b.setAttribute('id', 'button');
+                b.setAttribute('id', 'button' + i);
                 b.setAttribute('width', '30%');
                 b.innerHTML = pollOptions[i].name;
                 var x = b.innerHTML;
@@ -97,7 +97,14 @@
                     bindto: '#chart',
                     data: {
                         labels: true,
-                        type: 'bar'
+                        type: 'bar',
+                        colors: {
+                            'Mushu': '#cc6699',
+                            'Hamilton': '#0099cc',
+                            'Stephen': '#ffcc99',
+                            'Tomomi': '#33cccc',
+                            'Erlich': '#0000ff'      
+                        }
                     },
                     bar: {
                         width: {

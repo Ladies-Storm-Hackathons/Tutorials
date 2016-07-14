@@ -1,9 +1,10 @@
- #button {
-    background-color: #4CAF50;
+ /*all buttons have same width, pos, etc. only difference is color */
+ #button0, #button1, #button2, #button3, #button4 {
     border: none;
     color: white;
     padding: 15px 32px;
     margin-left: 25%;
+    top: 50%;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
@@ -12,8 +13,64 @@
     height: 50px;
     line-height: 50px; /*Must be the same as height to vertically align to the middle*/
 }
+#logoDiv {
+    position: relative;
+    width: 100%;
+    background-size: cover;
+}
+#logoDiv img {
+    width: 125px;
+    height: 100px;
+    left: 15%;
+    top:95%;
+    position: absolute;
+    margin-top: 10%;
+}
+
+#buttonDiv {
+   /* margin-top: 5%;
+    margin-left: 50px;
+    left: 50px;*/
+}
+button {
+    /*margin-top: 5%;*/
+/*    margin-left: 50px;
+    left: 50px;*/
+}
+
+/*button colors same as from quiz.js, c3.js colors */
+#button0 {
+    background-color: #cc6699;
+}
+#button1 {
+    background-color: #0099cc;
+}
+#button2 {
+    background-color: #ffcc99;
+}
+#button3 {
+    background-color: #33cccc;
+}
+#button4 {
+    background-color: #0000ff;
+}
 
 #chart {
     width: 75%;
     top: 25%;
+    background-color: #927FB8;
+}
+
+h2 {
+    color: #cc33ff;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-image: url("sky2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
 }
