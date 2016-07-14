@@ -1,89 +1,130 @@
-// var chan = "Spectra"
-//   var pollOptions = [
-//     { name: "Mushu", numVotes: 0 },
-//     { name: "AaronBurrSir", numVotes: 0 },
-//     { name: "Stephen", numVotes: 0 },
-//     { name: "Tomomi", numVotes: 0 },
-//     { name: "ErlichBachman", numVotes: 0 }
-//   ];
+ $(document).ready(function() {       //init
+        var pub_key = "pub-c-568f9a32-f440-4d58-9cee-e23cd1d12e7a";
+        var sub_key = "sub-c-2e615be4-439b-11e6-971e-02ee2ddab7fe";
+        var chan = "Spectra";
+       
+        var pb = PUBNUB.init({
+            publish_key: pub_key,
+            subscribe_key: sub_key
+        });
+        var pollOptions = [
+            {name: "Mushu" },
+            { name: "Hamilton"},
+            { name: "Stephen"},
+            { name: "Tomomi"},
+            { name: "Erlich"}
+        ];
+        var mushuNumVotes = 0;
+        var hamiltonNumVotes = 0;
+        var stephenNumVotes = 0;
+        var tomomiNumVotes = 0;
+        var erlichNumVotes = 0;
+        function pubRes() {
+            pb.publish({
+                channel: chan,
+                message: {
+                    eon: {
+                        "Mushu" : mushuNumVotes,
+                        "Hamilton" : hamiltonNumVotes,
+                        "Stephen" : stephenNumVotes,
+                        "Tomomi" : tomomiNumVotes,
+                        "Erlich" : erlichNumVotes
+                    }
+                },
+                callback: function(m) {
+                    console.log(m);
+                }
+            });
+        } //pubRes()
+        function voteUp(msg) {
+            return function() {
+            if(msg == "Mushu") {
+                mushuNumVotes++;
+            }
+            else if (msg == "Hamilton") {
+                hamiltonNumVotes++;
+            }
+            else if(msg == "Stephen") {
+                stephenNumVotes++;
+            }
+            else if(msg == "Tomomi") {
+                tomomiNumVotes++;
+            }
+            else if(msg == "Erlich") {
+                erlichNumVotes++;
+            }
+            pubRes();
+            sendData(msg);
+        }
+        }
+        function setup() {   //buttons     
+            var buttonsArr = [];
+            for(var i = 0; i < pollOptions.length; i++) {
+                var b = document.createElement('BUTTON');
+                b.setAttribute('id', 'button');
+                b.setAttribute('width', '30%');
+                b.innerHTML = pollOptions[i].name;
+                var x = b.innerHTML;
+                var t = document.createTextNode(pollOptions[i].name);
+                document.body.appendChild(b);
+                buttonsArr.push(b);
+            
+            buttonsArr[i].addEventListener("click", voteUp(pollOptions[i].name)); 
+        }
+            console.log(buttonsArr);
+        } //setup
+        setup(); //buttons
+        function sendData(msg) {
+            pb.publish({
+                ssl: true,
+                channel: chan,
+                message: msg
+            });
+        }
 
-// //init
-// var pub_key = "pub-c-568f9a32-f440-4d58-9cee-e23cd1d12e7a";
-// var sub_key = "sub-c-2e615be4-439b-11e6-971e-02ee2ddab7fe";
-// var pb = PUBNUB.init({
-//   channel: chan,
-//   publish_key: pub_key,
-//   subscribe_key: sub_key
-// });
-
-//   pb.subscribe({
+        
+// pb.subscribe({
 //     channel: chan,
 //     message: voteUp
-//   });
+// });
 
-//   function sendData(msg) {
-//     pb.publish({
-//       ssl: true,
-//         channel: chan,
-//         message: msg
-//     });
-//   }
+//embed
+        function draw() {
+            eon.chart({
+                channel: chan,
+                pubnub: pb,
+                generate: {
+                    bindto: '#chart',
+                    data: {
+                        labels: true,
+                        type: 'bar'
+                    },
+                    bar: {
+                        width: {
+                            ratio: 0.5
+                        }
+                    },
+                    tooltip: {
+                        show: false
+                    }
+                }
+            });
+        }
+          draw();
 
-//   function draw(pollOptions) {
-//     var bars = d3.select(".container")
-//       .selectAll(".bar-wrapper")
-//       .data(pollOptions);
-//     var barEnter = bars
-//       .enter()
-//       .append("div")
-//       .attr("class", "bar-wrapper")
-//     barEnter
-//       .append("button")
-//       .text(function(d) { return d.name; })
-//       .attr("class", "vote-btn btn-default btn-primary")
-//       .on("click", function(d) {
-//         sendData(d.name);
-//       });
-//     barEnter
-//       .append("div")
-//       .attr("class", "bar")
-//       .style("width", function (d) {
-//         return (d.numVotes*10)+15 + "px";
-//       })
-//       .text(function(d) { return d.numVotes });
-//     bars.selectAll("div")
-//       .text(function(d) { return d.numVotes })
-//       .style("width", function (d) {
-//         return (d.numVotes*10)+15 + "px";
-//       });
-//     bars
-//       .exit()
-//       .remove()
-//   };
 
-//   function voteUp(msg) {
-//     for (var i=0; i< pollOptions.length; i++) {
-//       var el = pollOptions[i];
-//       if (el.name == msg) {
-//         el.numVotes += 1;
-//       }
-//     }
-//     //redraw when vote ++ 
-//     draw(pollOptions);
-//   }
-
-//   function init_votes() {
-//     pb.history({
-//       channel: chan,
-//       start: 0,
-//       callback: function(msg) {
-//         var vote_history = msg[0];
-//         for (var i=0; i<vote_history.length; i++) {
-//           voteUp(vote_history[i]);
-//         }
-//       }
-//     });
-//   }
-
-//   init_votes();
-//   draw(pollOptions);
+function init_votes() {
+    pb.history({
+        channel: chan,
+        start: 0,
+        callback: function(msg) {
+            console.log("msg is ", msg)
+            var vote_history = msg[0];
+            for (var i=0; i<vote_history.length; i++) {
+                voteUp(vote_history[i]);
+            } //for
+        } //callback
+    }); //history //
+}
+  init_votes();
+});
