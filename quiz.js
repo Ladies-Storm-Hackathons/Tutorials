@@ -1,4 +1,9 @@
  $(document).ready(function() {       //init
+     var mushuNumVotes = 0;
+        var hamiltonNumVotes = 0;
+        var stephenNumVotes = 0;
+        var tomomiNumVotes = 0;
+        var erlichNumVotes = 0;
         var pub_key = "pub-c-568f9a32-f440-4d58-9cee-e23cd1d12e7a";
         var sub_key = "sub-c-2e615be4-439b-11e6-971e-02ee2ddab7fe";
         var chan = "Spectra";
@@ -8,17 +13,10 @@
             subscribe_key: sub_key
         });
         var pollOptions = [
-            {name: "Mushu" },
-            { name: "Hamilton"},
-            { name: "Stephen"},
-            { name: "Tomomi"},
-            { name: "Erlich"}
+            "Mushu", "Hamilton", "Stephen", "Tomomi", "Erlich"
         ];
-        var mushuNumVotes = 0;
-        var hamiltonNumVotes = 0;
-        var stephenNumVotes = 0;
-        var tomomiNumVotes = 0;
-        var erlichNumVotes = 0;
+       
+        setup(); //buttons
         function pubRes() {
             pb.publish({
                 channel: chan,
@@ -36,44 +34,44 @@
                 }
             });
         } //pubRes()
-        function voteUp(msg) {
-            return function() {
-            if(msg == "Mushu") {
-                mushuNumVotes++;
-            }
-            else if (msg == "Hamilton") {
-                hamiltonNumVotes++;
-            }
-            else if(msg == "Stephen") {
-                stephenNumVotes++;
-            }
-            else if(msg == "Tomomi") {
-                tomomiNumVotes++;
-            }
-            else if(msg == "Erlich") {
-                erlichNumVotes++;
-            }
-            pubRes();
-            sendData(msg);
-        }
-        }
+
         function setup() {   //buttons     
             var buttonsArr = [];
             for(var i = 0; i < pollOptions.length; i++) {
                 var b = document.createElement('BUTTON');
                 b.setAttribute('id', 'button' + i);
                 b.setAttribute('width', '30%');
-                b.innerHTML = pollOptions[i].name;
-                var x = b.innerHTML;
-                var t = document.createTextNode(pollOptions[i].name);
+                b.innerHTML = pollOptions[i];
                 document.body.appendChild(b);
                 buttonsArr.push(b);
-            
-            buttonsArr[i].addEventListener("click", voteUp(pollOptions[i].name)); 
-        }
-            console.log(buttonsArr);
+                buttonsArr[i].addEventListener("click", voteUp(pollOptions[i])); 
+            }
         } //setup
-        setup(); //buttons
+
+        function voteUp(msg) {
+            return function() {
+                if(msg == "Mushu") {
+                    mushuNumVotes++;
+                }
+                else if (msg == "Hamilton") {
+                    hamiltonNumVotes++;
+                }
+                else if(msg == "Stephen") {
+                    stephenNumVotes++;
+                }
+                else if(msg == "Tomomi") {
+                    tomomiNumVotes++;
+                }
+                else if(msg == "Erlich") {
+                    erlichNumVotes++;
+                }
+                pubRes();
+                //sendData(msg);
+            }
+                      draw();
+        }
+        
+        
         function sendData(msg) {
             pb.publish({
                 ssl: true,
@@ -83,10 +81,10 @@
         }
 
         
-// pb.subscribe({
-//     channel: chan,
-//     message: voteUp
-// });
+pb.subscribe({
+    channel: chan,
+    message: voteUp
+});
 
 //embed
         function draw() {
@@ -117,8 +115,6 @@
                 }
             });
         }
-          draw();
-
 
 function init_votes() {
     pb.history({
@@ -134,4 +130,5 @@ function init_votes() {
     }); //history //
 }
   init_votes();
+draw();
 });
