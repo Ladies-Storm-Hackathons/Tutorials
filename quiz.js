@@ -64,7 +64,13 @@ function voteUp(msg) {
     draw();
 }
 
+//publish
 function pubRes() {
+    console.log('mushuNumVotes', mushuNumVotes)
+    console.log('hamiltonNumVotes', hamiltonNumVotes)
+    console.log('stephenNumVotes', stephenNumVotes)
+    console.log('erlichNumVotes', erlichNumVotes)
+
     pb.publish({
         channel: chan,
         message: {
@@ -77,9 +83,10 @@ function pubRes() {
             }
         },
         callback: function(m) {
-            console.log(m);
+            console.log("callback in pubres", m);
         }
     });
+
 } //pubRes()
 
 
@@ -134,4 +141,27 @@ function pubRes() {
         }
     } //setup
 
-    setup(); //buttons  
+    setup(); //buttons 
+
+        window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '151344775270854',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+// Only works after `FB.init` is called
+function myFacebookLogin() {
+   FB.login(function(){
+  // Note: The call will only work if you accept the permission request
+  FB.api('/me/feed', 'post', {message: 'Hello, world! Having fun building a realtime voting app with #PubNub and #Twitter and #Facebook APIs #sospectra'});
+    }, {scope: 'publish_actions'});
+} 

@@ -1,8 +1,9 @@
 <!--CSS background: http://www.crafthubs.com/outer-space/21046 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
     <meta charset="utf-8">
+    <meta property="og:title" content="My awesome webapp" />
     <title>Realtime survey with PubNub and D3JS</title>
      <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -11,8 +12,21 @@
     <link type="text/css" rel="stylesheet" href="http://pubnub.github.io/eon/v/eon/0.0.10/eon.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 </head>
 <body>
+<div id="fb-root"></div>
+	<!-- USE 'Asynchronous Loading' version, for IE8 to work
+	http://developers.facebook.com/docs/reference/javascript/FB.init/ -->
+	
+<button id = "autoPostStatus" onclick="myFacebookLogin()">Post prev-composed status</button>
+<!--FB init buttons -->
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
     <div class = "container">
         <h2><font color = "#6600cc">Who would you vote for president?</font></h2>
     </div>
