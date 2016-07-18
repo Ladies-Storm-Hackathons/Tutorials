@@ -3,17 +3,14 @@
     border: none;
     color: white;
     padding: 15px 32px;
-    margin-left: 25%;
     text-align: center;
     text-decoration: none;
     font-size: 25px;
     margin: 4px 2px;
     cursor: pointer;
-    height: 50px;
+    height: 60px;
     line-height: 50px; /*Must be the same as height to vertically align to the middle*/
     position: relative;
-    top:50%;
-    left: 50%;
 }
 
 button:hover {
@@ -56,7 +53,7 @@ button:hover {
 
 #buttonDiv {
     margin-left: 30%;
-    background-color: #b4b4f0;
+/*    background-color: #b4b4f0;*/
     width: 22%;
     padding: 1%;
 }

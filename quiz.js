@@ -2,6 +2,10 @@ var pub_key = "pub-c-568f9a32-f440-4d58-9cee-e23cd1d12e7a";
 var sub_key = "sub-c-2e615be4-439b-11e6-971e-02ee2ddab7fe";
 var chan = "Spectra";
 
+    var pollOptions = [
+        "Mushu", "Hamilton", "Stephen", "Tomomi", "Erlich"
+    ];
+
 var pb = PUBNUB.init({
     publish_key: pub_key,
     subscribe_key: sub_key
@@ -29,6 +33,22 @@ function init_votes() {
         } //callback
     }); //history //
 } //init_votes()
+
+  function setup() {   //buttons     
+        var buttonsArr = [];
+        for(var i = 0; i < pollOptions.length; i++) {
+            var b = document.createElement('BUTTON');
+            b.setAttribute('id', 'button' + i);
+            b.setAttribute('width', '30%');
+            b.setAttribute('style', 'left:5%;');
+            b.innerHTML = pollOptions[i];
+            document.body.appendChild(b);
+            buttonsArr.push(b);
+            buttonsArr[i].addEventListener("click", voteUp(pollOptions[i])); 
+        }
+    } //setup
+
+    setup(); //buttons 
 
 init_votes(); //call init_votes()
 
@@ -124,24 +144,6 @@ function pubRes() {
     
     draw();
    
-    var pollOptions = [
-        "Mushu", "Hamilton", "Stephen", "Tomomi", "Erlich"
-    ];
-   
-    function setup() {   //buttons     
-        var buttonsArr = [];
-        for(var i = 0; i < pollOptions.length; i++) {
-            var b = document.createElement('BUTTON');
-            b.setAttribute('id', 'button' + i);
-            b.setAttribute('width', '30%');
-            b.innerHTML = pollOptions[i];
-            document.body.appendChild(b);
-            buttonsArr.push(b);
-            buttonsArr[i].addEventListener("click", voteUp(pollOptions[i])); 
-        }
-    } //setup
-
-    setup(); //buttons 
 
         window.fbAsyncInit = function() {
     FB.init({
