@@ -1,120 +1,20 @@
- $(document).ready(function() {       //init
-     var mushuNumVotes = 0;
-        var hamiltonNumVotes = 0;
-        var stephenNumVotes = 0;
-        var tomomiNumVotes = 0;
-        var erlichNumVotes = 0;
-        var pub_key = "pub-c-568f9a32-f440-4d58-9cee-e23cd1d12e7a";
-        var sub_key = "sub-c-2e615be4-439b-11e6-971e-02ee2ddab7fe";
-        var chan = "Spectra";
-       
-        var pb = PUBNUB.init({
-            publish_key: pub_key,
-            subscribe_key: sub_key
-        });
-        var pollOptions = [
-            "Mushu", "Hamilton", "Stephen", "Tomomi", "Erlich"
-        ];
-       
-        setup(); //buttons
-        function pubRes() {
-            pb.publish({
-                channel: chan,
-                message: {
-                    eon: {
-                        "Mushu" : mushuNumVotes,
-                        "Hamilton" : hamiltonNumVotes,
-                        "Stephen" : stephenNumVotes,
-                        "Tomomi" : tomomiNumVotes,
-                        "Erlich" : erlichNumVotes
-                    }
-                },
-                callback: function(m) {
-                    console.log(m);
-                }
-            });
-        } //pubRes()
+var pub_key = "pub-c-568f9a32-f440-4d58-9cee-e23cd1d12e7a";
+var sub_key = "sub-c-2e615be4-439b-11e6-971e-02ee2ddab7fe";
+var chan = "Spectra";
 
-        function setup() {   //buttons     
-            var buttonsArr = [];
-            for(var i = 0; i < pollOptions.length; i++) {
-                var b = document.createElement('BUTTON');
-                b.setAttribute('id', 'button' + i);
-                b.setAttribute('width', '30%');
-                b.innerHTML = pollOptions[i];
-                document.body.appendChild(b);
-                buttonsArr.push(b);
-                buttonsArr[i].addEventListener("click", voteUp(pollOptions[i])); 
-            }
-        } //setup
-
-        function voteUp(msg) {
-            return function() {
-                if(msg == "Mushu") {
-                    mushuNumVotes++;
-                }
-                else if (msg == "Hamilton") {
-                    hamiltonNumVotes++;
-                }
-                else if(msg == "Stephen") {
-                    stephenNumVotes++;
-                }
-                else if(msg == "Tomomi") {
-                    tomomiNumVotes++;
-                }
-                else if(msg == "Erlich") {
-                    erlichNumVotes++;
-                }
-                pubRes();
-                //sendData(msg);
-            }
-                      draw();
-        }
-        
-        
-        function sendData(msg) {
-            pb.publish({
-                ssl: true,
-                channel: chan,
-                message: msg
-            });
-        }
-
-        
-pb.subscribe({
-    channel: chan,
-    message: voteUp
+var pb = PUBNUB.init({
+    publish_key: pub_key,
+    subscribe_key: sub_key
 });
 
-//embed
-        function draw() {
-            eon.chart({
-                channel: chan,
-                pubnub: pb,
-                generate: {
-                    bindto: '#chart',
-                    data: {
-                        labels: true,
-                        type: 'bar',
-                        colors: {
-                            'Mushu': '#cc6699',
-                            'Hamilton': '#0099cc',
-                            'Stephen': '#ffcc99',
-                            'Tomomi': '#33cccc',
-                            'Erlich': '#0000ff'      
-                        }
-                    },
-                    bar: {
-                        width: {
-                            ratio: 0.5
-                        }
-                    },
-                    tooltip: {
-                        show: false
-                    }
-                }
-            });
-        }
+   function sub() {
+        pb.subscribe({
+            channel: chan,
+            message: voteUp
+        });
+    }
+
+    sub();
 
 function init_votes() {
     pb.history({
@@ -128,7 +28,110 @@ function init_votes() {
             } //for
         } //callback
     }); //history //
+} //init_votes()
+
+init_votes(); //call init_votes()
+
+var mushuNumVotes = 0;
+var hamiltonNumVotes = 0;
+var stephenNumVotes = 0;
+var tomomiNumVotes = 0;
+var erlichNumVotes = 0;
+
+function voteUp(msg) {
+    return function() {
+        if(msg == "Mushu") {
+            mushuNumVotes++;
+            console.log("Mushu msg voteup", mushuNumVotes);
+        }
+        else if (msg == "Hamilton") {
+            hamiltonNumVotes++;
+            console.log("Ham msg voteup", hamiltonNumVotes);
+        }
+        else if(msg == "Stephen") {
+            stephenNumVotes++;
+            console.log("Stephen msg voteup", stephenNumVotes);
+        }
+        else if(msg == "Tomomi") {
+            tomomiNumVotes++;
+        }
+        else if(msg == "Erlich") {
+            erlichNumVotes++;
+        }
+        pubRes();
+        //sendData(msg);
+    }
+    draw();
 }
-  init_votes();
-draw();
-});
+
+function pubRes() {
+    pb.publish({
+        channel: chan,
+        message: {
+            eon: {
+                "Mushu" : mushuNumVotes,
+                "Hamilton" : hamiltonNumVotes,
+                "Stephen" : stephenNumVotes,
+                "Tomomi" : tomomiNumVotes,
+                "Erlich" : erlichNumVotes
+            }
+        },
+        callback: function(m) {
+            console.log(m);
+        }
+    });
+} //pubRes()
+
+
+    //embed
+    function draw() {
+        eon.chart({
+            channel: chan,
+            pubnub: pb,
+            generate: {
+                bindto: '#chart',
+                data: {
+                    labels: true,
+                    type: 'bar',
+                    colors: {
+                        'Mushu': '#cc6699',
+                        'Hamilton': '#0099cc',
+                        'Stephen': '#ffcc99',
+                        'Tomomi': '#33cccc',
+                        'Erlich': '#0000ff'      
+                    }
+                },
+                bar: {
+                    width: {
+                        ratio: 0.5
+                    }
+                },
+                tooltip: {
+                    show: false
+                }
+            }
+        });
+    }
+
+   
+    
+    draw();
+   
+    var pollOptions = [
+        "Mushu", "Hamilton", "Stephen", "Tomomi", "Erlich"
+    ];
+   
+    function setup() {   //buttons     
+        var buttonsArr = [];
+        for(var i = 0; i < pollOptions.length; i++) {
+            var b = document.createElement('BUTTON');
+            b.setAttribute('id', 'button' + i);
+            b.setAttribute('width', '30%');
+            b.innerHTML = pollOptions[i];
+            document.body.appendChild(b);
+            buttonsArr.push(b);
+            buttonsArr[i].addEventListener("click", voteUp(pollOptions[i])); 
+        }
+    } //setup
+
+    setup(); //buttons  
