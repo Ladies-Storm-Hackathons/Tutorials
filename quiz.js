@@ -1,146 +1,75 @@
-var pub_key = "pub-c-568f9a32-f440-4d58-9cee-e23cd1d12e7a";
-var sub_key = "sub-c-2e615be4-439b-11e6-971e-02ee2ddab7fe";
+var pubKey = "pub-c-568f9a32-f440-4d58-9cee-e23cd1d12e7a";
+var subKey = "sub-c-2e615be4-439b-11e6-971e-02ee2ddab7fe";
 var chan = "Spectra";
 
-var pollOptions = [
-    "Mushu", "Hamilton", "Stephen", "Tomomi", "Erlich"
-];
-var mushuNumVotes = 0;
-var hamiltonNumVotes = 0;
-var stephenNumVotes = 0;
-var tomomiNumVotes = 0;
-var erlichNumVotes = 0;
+var pollOptions = {
+    eon: {
+        "Mushu" : 0, 
+        "Erlich" :0,
+        "Stephen" : 0,
+        "Tomomi" : 0,
+        "Ian" : 0
+    }
+};
 
 var pb = PUBNUB.init({
-    publish_key: pub_key,
-    subscribe_key: sub_key
+    publish_key: pubKey,
+    subscribe_key: subKey
 });
 
+//button layout, click action
+function setup() {   //buttons     
+    for(key in pollOptions.eon) {
+        var b = document.createElement('BUTTON');
+        b.setAttribute('id', 'button' + key);
+        b.setAttribute('style', 'left:10%;width:6%;margin-left:4%;margin-top:4%;margin-bottom:5%;');
+        b.innerHTML = key;
+        b.addEventListener("click", voteUp(key)); 
+        document.body.appendChild(b);
+    } //for
+} //setup
+setup(); //buttons 
+
 //get history
-function init_votes() {
+function initOlderVotes() {
     console.log("history here");
     pb.history({
         channel: chan,
-        //start: 0,
-        count: 5,
+        count: 1,
         callback: function(msg) {
-            console.log("msg is ", msg)
-            var vote_history = msg[0];
-            console.log(vote_history);
-            pb.each(vote_history,voteUp );
-            pb.each(vote_history, pubRes);
+            console.log("msg is ", msg);
+            var voteHistory = msg[0];
+            if(voteHistory.length) {
+                pollOptions = voteHistory[0];
+            }
         }, //callback
     }); //history 
-    console.log("in init_votes");
-    draw();
 } //init_votes()
-
-init_votes();
-
-//subscribe -> sub then pub doesn't work
-function sub() {
-console.log("subscribing");
-    pb.subscribe({
-        channel: chan,
-        //message: init_votes, //voteUp? pubRes?
-        // message: function(m) {
-        //     console.log("m", JSON.stringify(m));
-        // },
-        // error : function (error) {
-        //     // Handle error here
-        //     console.log(JSON.stringify(error));
-        // },
-        // connect: pubRes(),
-        callback: voteUp
-        // connect: function() {
-        //     console.log("in connect");
-        //     pb.publish({
-        //         channel: chan,
-        //         message: "connect"
-        //     });
-        // }
-    });
-}
-
-sub();
-//button layout, click action
-function setup() {   //buttons     
-    var buttonsArr = [];
-    for(var i = 0; i < pollOptions.length; i++) {
-        var b = document.createElement('BUTTON');
-        b.setAttribute('id', 'button' + i);
-        b.setAttribute('width', '30%');
-        b.setAttribute('style', 'left:5%;');
-        b.innerHTML = pollOptions[i];
-        document.body.appendChild(b);
-        buttonsArr.push(b);
-        buttonsArr[i].addEventListener("click", voteUp(pollOptions[i])); 
-    }
-} //setup
-
-setup(); //buttons 
-
+initOlderVotes();
 
 //publish -> keeps tally in individual browser of each vote but !of each different browser
 function pubRes() {
-    console.log('mushuNumVotes', mushuNumVotes)
-    console.log('hamiltonNumVotes', hamiltonNumVotes)
-    console.log('stephenNumVotes', stephenNumVotes)
-    console.log('erlichNumVotes', erlichNumVotes)
-
     pb.publish({
         channel: chan,
-        message: {
-            eon: {
-                "Mushu" : mushuNumVotes,
-                "Hamilton" : hamiltonNumVotes,
-                "Stephen" : stephenNumVotes,
-                "Tomomi" : tomomiNumVotes,
-                "Erlich" : erlichNumVotes
-            }
-        },
-        callback: function(m) {
-            console.log("callback in pubres", m);
-        }
+        message: pollOptions
     });
-
 } //pubRes()
-
 
 
 function voteUp(msg) {
     return function() {
-        if(msg == "Mushu") {
-            mushuNumVotes++;
-            //console.log("Mushu msg voteup", mushuNumVotes);
-        }
-        else if (msg == "Hamilton") {
-            hamiltonNumVotes++;
-            //console.log("Ham msg voteup", hamiltonNumVotes);
-        }
-        else if(msg == "Stephen") {
-            stephenNumVotes++;
-            //console.log("Stephen msg voteup", stephenNumVotes);
-        }
-        else if(msg == "Tomomi") {
-            tomomiNumVotes++;
-        }
-        else if(msg == "Erlich") {
-            erlichNumVotes++;
-        }
+        console.log(pollOptions);
+        pollOptions.eon[msg] = pollOptions.eon[msg] + 1;
         pubRes();
-        //draw();
-        //sendData(msg);
-    } //only publishes on click 
-    
+    } //JS closure only publishes on click     
 }
 
 //embed
 function draw() {
     eon.chart({
-        pubnub: pb,
-        channel: chan,
-        history:true,
+        pubnub: pb, //same pubnub object
+        channel: chan, //same channel
+        history: true,
         generate: {
             bindto: '#chart',
             data: {
@@ -148,10 +77,10 @@ function draw() {
                 type: 'bar',
                 colors: {
                     'Mushu': '#cc6699',
-                    'Hamilton': '#0099cc',
+                    'Erlich': '#0099cc',
                     'Stephen': '#ffcc99',
                     'Tomomi': '#33cccc',
-                    'Erlich': '#0000ff'      
+                    'Ian': '#0000ff'      
                 }
             },
             bar: {
@@ -166,9 +95,9 @@ function draw() {
     });
 }
 
-//init_votes();
 draw();
 
+//fb
 window.fbAsyncInit = function() {
     FB.init({
         appId      : '151344775270854',

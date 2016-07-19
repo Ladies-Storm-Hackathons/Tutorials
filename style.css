@@ -1,61 +1,19 @@
 /*all buttons have same width, pos, etc. only difference is color */
- #button0, #button1, #button2, #button3, #button4 {
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 25px;
-    margin: 4px 2px;
-    cursor: pointer;
-    height: 60px;
-    line-height: 50px; /*Must be the same as height to vertically align to the middle*/
-    position: relative;
-}
-
 button:hover {
     background-color: #f5dfdf;
 }
-/*a: hover {
+a: hover {
      background-color: #f5dfdf;
-}*/
+}
 #logoDiv {
-    position: relative;
-    width: 100%;
-    background-size: cover;
-}
-#logoDiv img {
-    width: 125px;
-    height: 100px;
-    left: 15%;
-    top:95%;
     position: absolute;
-    margin-top: 10%;
+    top:0;
+    right:0;
 }
 
-/*button colors same as from quiz.js, c3.js colors */
-#button0 {
-    background-color: #cc6699;
-    margin-left: 13%;
-}
-#button1 {
-    background-color: #0099cc;
-}
-#button2 {
-    background-color: #ffcc99;
-}
-#button3 {
-    background-color: #33cccc;
-}
-#button4 {
-    background-color: #0000ff;
-}
-
-#buttonDiv {
-    margin-left: 30%;
-/*    background-color: #b4b4f0;*/
-    width: 22%;
-    padding: 1%;
+#logoDiv img{
+	width:125px;
+	height:100px;
 }
 
 #autoPostStatus {
@@ -70,9 +28,8 @@ button:hover {
 }
 
 #twitterButton {
-    margin-left: 4%;
-    margin-top: 1.5%;
-    padding-left: 2%;
+	margin-top: -7%;
+	margin-left:55%;
 }
 
 #chart {
@@ -98,4 +55,19 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-position: top left;
+}
+
+footer {
+	float:right;
+	background-color:#927FB8;
+	text-align:center;
+	right:0;
+	width:40%;
+	font-size:1.5em;
+	margin-top:1%;
+	color: black;
+}
+
+footer a {
+	color: #f5dfdf;
 }
