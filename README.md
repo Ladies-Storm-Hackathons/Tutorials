@@ -17,7 +17,8 @@ Next, you create a dictionary of polling options. The values are the counts of t
 
 ##EON chart
 <p>
-A bar graph best visualizes voting. To draw the graph in an HTML div titled chart, you just need to call the chart method on your eon object, and pass some parameters into it. Some are required, like your PubNub instance and your channel, but others are completely optional. </p>
+A bar graph best visualizes voting. To draw the graph in an HTML div titled chart, you just need to call the chart method on your eon object, and pass some parameters into it. Some are required, like your PubNub instance and your channel, but others are completely optional. 
+</p>
 
 ![eon-chart-realtime-voting-web-app](https://cloud.githubusercontent.com/assets/8932430/16998415/2dc785a4-4e6e-11e6-85b3-d961c7ba47be.png)
 
