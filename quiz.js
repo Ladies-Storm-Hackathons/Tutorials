@@ -18,21 +18,22 @@ var pb = PUBNUB.init({
 });
 
 //button layout, click action
-function setup() {   //buttons     
+function setupButtons() {   //buttons  
+    var buttonColor;   
     for(key in pollOptions.eon) {
         var b = document.createElement('BUTTON');
         b.setAttribute('id', 'button' + key);
-        b.setAttribute('style', 'left:10%;width:6%;margin-left:4%;margin-top:4%;margin-bottom:5%;');
+        b.setAttribute('style', 'left:10%;width:6%;margin-left:4%;margin-top:4%;margin-bottom:5%;background-color:buttonColor;color:white;'); 
         b.innerHTML = key;
         b.addEventListener("click", voteUp(key)); 
         document.body.appendChild(b);
+
     } //for
 } //setup
-setup(); //buttons 
+setupButtons(); //buttons 
 
 //get history
 function initOlderVotes() {
-    console.log("history here");
     pb.history({
         channel: chan,
         count: 1,
@@ -44,30 +45,35 @@ function initOlderVotes() {
             }
         }, //callback
     }); //history 
-} //init_votes()
+} //initOlderVotes()
+
 initOlderVotes();
 
+
 //publish -> keeps tally in individual browser of each vote but !of each different browser
-function pubRes() {
+function publishResults() {
     pb.publish({
         channel: chan,
-        message: pollOptions
+        message: pollOptions,
+        callback: function(m) {
+            console.log("publishing!");
+        }
     });
-} //pubRes()
+} //publishResults()
 
 
-function voteUp(msg) {
+function voteUp(pollOptionKey) {
     return function() {
         console.log(pollOptions);
-        pollOptions.eon[msg] = pollOptions.eon[msg] + 1;
-        pubRes();
-    } //JS closure only publishes on click     
+        pollOptions.eon[pollOptionKey] += 1;
+        publishResults();
+    } //JS closure each button has unique function 
 }
 
 //embed
-function draw() {
+function drawChart() {
     eon.chart({
-        pubnub: pb, //same pubnub object
+        pubnub: pb, //same pubnub object, gets data from channel
         channel: chan, //same channel
         history: true,
         generate: {
@@ -89,13 +95,20 @@ function draw() {
                 }
             },
             tooltip: {
-                show: false
+                show: false //hover over and see chart of counts
             }
         }
     });
 }
 
-draw();
+drawChart();
+
+window.onload = function() {
+    initOlderVotes();
+    publishResults();
+    drawChart();
+    console.log("here, on load");
+}
 
 //fb
 window.fbAsyncInit = function() {
@@ -107,11 +120,15 @@ window.fbAsyncInit = function() {
 };
 
 (function(d, s, id){
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) {return;}
-js = d.createElement(s); js.id = id;
-js.src = "//connect.facebook.net/en_US/sdk.js";
-fjs.parentNode.insertBefore(js, fjs);
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s); 
+
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 // Only works after `FB.init` is called
 function myFacebookLogin() {

@@ -1,10 +1,23 @@
 /*all buttons have same width, pos, etc. only difference is color */
-button:hover {
-    background-color: #f5dfdf;
-}
 a: hover {
      background-color: #f5dfdf;
 }
+#buttonMushu {
+    background-color:rgb(204,102,153);
+}
+#buttonErlich {
+    background-color:rgb(0,153,204);
+}
+#buttonStephen {
+    background-color:rgb(255,204,153);
+}
+#buttonTomomi {
+    background-color:rgb(51,204,204);
+}
+#buttonIan {
+    background-color:rgb(0,0,255);
+}
+
 #logoDiv {
     position: absolute;
     top:0;
@@ -63,9 +76,15 @@ footer {
 	text-align:center;
 	right:0;
 	width:40%;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:5%;
+    width:100%;
 	font-size:1.5em;
-	margin-top:1%;
 	color: black;
+    vertical-align: center;
+    line-height: 60px;
 }
 
 footer a {
