@@ -1,5 +1,8 @@
 //publish, subscribe keys
 //channel
+var pubKey = "pub-c-568f9a32-f440-4d58-9cee-e23cd1d12e7a";
+var subKey = "sub-c-2e615be4-439b-11e6-971e-02ee2ddab7fe";
+var chan = "Spectra";
 
 var pollOptions = {
     eon: {
@@ -64,18 +67,18 @@ function drawChart() {
 
 drawChart();
 
-//fb async, init, version, etc...
+// //fb async, init, version, etc...
 
-//fill in function
-(function(d, s, id){
+// //fill in function
+// (function(d, s, id){
 
-}(document, 'script', 'facebook-jssdk'));
-// Only works after `FB.init` is called
+// }(document, 'script', 'facebook-jssdk'));
+// // Only works after `FB.init` is called
 
-//customizable
-function myFacebookLogin() {
-    FB.login(function(){
-    // Note: The call will only work if you accept the permission request
-        FB.api('/me/feed', 'post', {message: 'Hello, world! Having fun building a realtime voting app with #PubNub and #Twitter and #Facebook APIs #sospectra'});
-    }, {scope: 'publish_actions'});
-} 
+// //customizable
+// function myFacebookLogin() {
+//     FB.login(function(){
+//     // Note: The call will only work if you accept the permission request
+//         FB.api('/me/feed', 'post', {message: 'Hello, world! Having fun building a realtime voting app with #PubNub and #Twitter and #Facebook APIs #sospectra'});
+//     }, {scope: 'publish_actions'});
+// } 
