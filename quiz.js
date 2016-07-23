@@ -4,11 +4,11 @@ var chan = "Spectra";
 
 var pollOptions = {
     eon: {
-        "Mushu" : 0, 
-        "Erlich" :0,
-        "Stephen" : 0,
-        "Tomomi" : 0,
-        "Ian" : 0
+        "Mushu" : 0.0, 
+        "Erlich" :0.0,
+        "Stephen" : 0.0,
+        "Tomomi" : 0.0,
+        "Ian" : 0.0
     }
 };
 
@@ -50,7 +50,7 @@ function initOlderVotes() {
 initOlderVotes();
 
 
-//publish -> keeps tally in individual browser of each vote but !of each different browser
+//publish -> keeps tally 
 function publishResults() {
     pb.publish({
         channel: chan,
@@ -65,7 +65,7 @@ function publishResults() {
 function voteUp(pollOptionKey) {
     return function() {
         console.log(pollOptions);
-        pollOptions.eon[pollOptionKey] += 1;
+        pollOptions.eon[pollOptionKey] += 1.0;
         publishResults();
     } //JS closure each button has unique function 
 }
@@ -103,34 +103,23 @@ function drawChart() {
 
 drawChart();
 
-window.onload = function() {
-    initOlderVotes();
-    publishResults();
-    drawChart();
-    console.log("here, on load");
-}
 
-//fb
-window.fbAsyncInit = function() {
-    FB.init({
-        appId      : '151344775270854',
-        xfbml      : true,
-        version    : 'v2.7'
-    });
-};
+//fb 
+window.fbA //...
 
-(function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {
-        return;
-    }
-    js = d.createElement(s); 
+// (function(d, s, id){
+//     var js, fjs = d.getElementsByTagName(s)[1];
+//     if (d.getElementById(id)) {
+//         return;
+//     }
+//     js = d.createElement(s); 
 
-    js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+//     id = id;
+//     js.src = "//connect.facebook.net/en_US/sdk.js";
+//     fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));
 // Only works after `FB.init` is called
+
 function myFacebookLogin() {
     FB.login(function(){
     // Note: The call will only work if you accept the permission request
