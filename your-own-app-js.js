@@ -64,34 +64,15 @@ function drawChart() {
 
 drawChart();
 
-window.onload = function() {
-    initOlderVotes();
-    publishResults();
-    drawChart();
-    console.log("here, on load");
-}
+//fb async, init, version, etc...
 
-//fb
-window.fbAsyncInit = function() {
-    FB.init({
-        appId      : '151344775270854',
-        xfbml      : true,
-        version    : 'v2.7'
-    });
-};
-
+//fill in function
 (function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {
-        return;
-    }
-    js = d.createElement(s); 
 
-    js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 // Only works after `FB.init` is called
+
+//customizable
 function myFacebookLogin() {
     FB.login(function(){
     // Note: The call will only work if you accept the permission request
