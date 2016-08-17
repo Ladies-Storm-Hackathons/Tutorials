@@ -7,9 +7,9 @@
 - In either the "Past Tutorials" or "Upcoming Tutorials" sections, add the following information to the table as below.
 **Make sure to link your tutorial title to the folder you created.**
 
-| Tutorial Title        | Speaker Contact Info | Level | Previous Skills Required |
-| :-------------------: |:--------------------:| :---: | :----------------------: |
-| [Learn Python]()      | your_email@place.com | Beginner/Intermediate/Advanced | Any prior knowledge required? |
+| Tutorial Title        | Location/Time | Speaker Contact Info | Level | Previous Skills Required |
+| :-------------------: | :-----------: | :------------------: | :---: | :----------------------: |
+| [Learn Python]()      | Online? At a conference? | your_email@place.com | Beginner/Intermediate/Advanced | Any prior knowledge required? |
 
 - Commit your changes to your local branch.
 - Submit a pull request to Ladies-Storm-Hackathons/Tutorials. It should be the first option when you press the green pull request button.
