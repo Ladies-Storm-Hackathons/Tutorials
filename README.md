@@ -1,5 +1,12 @@
 # Tutorials
+
+### Purpose
 Missed an LSH tutorial? Check out the source code & slides here.
 
+### Past Tutorials
+| Tutorial Title        | Speaker Contact Info |
+| :-------------------: |:--------------------:|
 
-Want to share your tutorial or talk with members of LSH? Fork this repository and add your materials here.
+### Upcoming Tutorials
+| Tutorial Title        | Speaker Contact Info |
+| :-------------------: |:--------------------:|
