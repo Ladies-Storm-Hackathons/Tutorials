@@ -1,0 +1,56 @@
+<div class="col-md-10 col-md-offset-1" ng-if="loading">
+  <div class="page-header">
+    <h1>Loading...</h1>
+  </div>
+</div>
+ 
+<div class="col-md-10 col-md-offset-1" ng-if="!loading">
+  <div ng-if="movie.title">
+    <div class="page-header">
+      <h1>Episode {{ id }}: {{ movie.title }}</h1>
+    </div>
+ 
+    <p><a href="#/">Home</a><p>
+ 
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Name: {{ movie.title }}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Opening Crawl:
+        <p>
+          {{ movie.opening_crawl }}
+        </p>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Director: {{ movie.director }}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Producer: {{ movie.producer }}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Release Date: {{ movie.release_date }}
+      </div>
+    </div>
+    
+ 
+  </div>
+ 
+  <div ng-if="!movie.title">
+ 
+    <div class="page-header">
+      <h1>There is no Episode {{ id }} yet :(</h1>
+    </div>
+ 
+    <a href="#/">Return Home?</a>
+ 
+  </div>
+</div>

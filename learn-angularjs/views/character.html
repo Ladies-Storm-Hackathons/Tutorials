@@ -1,0 +1,63 @@
+<div class="col-md-10 col-md-offset-1" ng-if="loading">
+  <div class="page-header">
+    <h1>Loading...</h1>
+  </div>
+</div>
+ 
+<div class="col-md-10 col-md-offset-1" ng-if="!loading">
+  <div ng-if="character.name">
+ 
+    <div class="page-header">
+      <h1>{{ character.name }}</h1>
+    </div>
+ 
+    <p><a href="#/">Home</a><p>
+ 
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Name: {{ character.name }}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Height: {{ character.height }}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Mass: {{ character.mass }}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Hair Color: {{ character.hair_color }}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Eye Color: {{ character.eye_color }}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Birth Year: {{ character.birth_year }}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Gender: {{ character.gender }}
+      </div>
+    </div>
+ 
+  </div>
+ 
+  <div ng-if="!character.name">
+ 
+    <div class="page-header">
+      <h1>No one by the name {{ id }} exists :(</h1>
+    </div>
+ 
+    <a href="#/">Return Home?</a>
+ 
+  </div>
+</div>
