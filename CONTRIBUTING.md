@@ -3,9 +3,8 @@
 ### Steps
 - Fork this repository
 - [Create a folder](http://stackoverflow.com/questions/18773598/creating-folders-inside-github-com-repo-without-using-git) whose name is your presentation title (e.g. Learn-Python).
-- Add your source code, slides, and other tutorial files to your new folder.
+- Add your source code, slides, and other tutorial files to your new folder. Alternatively, **if you have already published the code, slides, etc. for your tutorial to another blog or website**, just add a README.md to your folder with the tutorial title and a hyperlink to the location of your tutorial.
 - In either the "Past Tutorials" or "Upcoming Tutorials" sections, add the following information to the table as below.
-
 
 **Make sure to link your tutorial title to the folder you created.**
 
@@ -14,7 +13,7 @@
 | [Learn Python]()      | Online? At a conference? | your_email@place.com | Beginner/Intermediate/Advanced | Any prior knowledge required? |
 
 
-**Add Info to lsh-tutorials.json (This is for the website)**
+- **Add needed JSON-formatted information to lsh-tutorials.json (for the website)**
 
 Inside the "tutorials" member, add the object in the array with the following format and change the value as appropriate:
 
