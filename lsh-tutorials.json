@@ -1,0 +1,20 @@
+{
+	"Title": "LSH Tutorials",
+    "GithubURL": "https://github.com/Ladies-Storm-Hackathons/Tutorials",
+	"Tutorials": [
+        {
+		    "topic": "Learn AngularJS",
+		    "urlFiles": "https://github.com/Ladies-Storm-Hackathons/Tutorials/tree/master/learn-angularjs",
+            "location": "Online",
+            "date": "August 16, 2016",
+            "time": "5 pm EST",
+            "howToAttendURL": "https://www.facebook.com/events/1748805382027851/1752788888296167/?notif_t=admin_plan_mall_activity&notif_id=1471737496700206",
+            "speakersContactInfo": {
+                "name": "Aashni Shah",
+                "email": "contact@aashni.me"
+            },
+            "level": "Beginner",
+        	"previousSkillRequired": "HTML/CSS and some Javascript would be a bonus"
+        }
+    ]
+}
