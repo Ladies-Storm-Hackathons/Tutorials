@@ -16,7 +16,7 @@
 
 **Add Info to lsh-tutorials.json (This is for the website)**
 
-Inside the "tutorial" member, add the object in the array with the following format and change the value as appropriate:
+Inside the "tutorials" member, add the object in the array with the following format and change the value as appropriate:
 
 ```
 	,{

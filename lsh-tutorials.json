@@ -1,7 +1,7 @@
 {
-	"Title": "LSH Tutorials",
-    "GithubURL": "https://github.com/Ladies-Storm-Hackathons/Tutorials",
-	"Tutorials": [
+	"title": "LSH Tutorials",
+    "githubURL": "https://github.com/Ladies-Storm-Hackathons/Tutorials",
+	"tutorials": [
         {
 		    "topic": "Learn AngularJS",
 		    "urlFiles": "https://github.com/Ladies-Storm-Hackathons/Tutorials/tree/master/learn-angularjs",
