@@ -1,20 +1,43 @@
 {
 	"title": "LSH Tutorials",
-    "githubURL": "https://github.com/Ladies-Storm-Hackathons/Tutorials",
+	"githubURL": "https://github.com/Ladies-Storm-Hackathons/Tutorials",
 	"tutorials": [
-        {
-		    "topic": "Learn AngularJS",
-		    "urlFiles": "https://github.com/Ladies-Storm-Hackathons/Tutorials/tree/master/learn-angularjs",
-            "location": "Online",
-            "date": "August 16, 2016",
-            "time": "5 pm EST",
-            "howToAttendURL": "https://www.facebook.com/events/1748805382027851/1752788888296167/?notif_t=admin_plan_mall_activity&notif_id=1471737496700206",
-            "speakersContactInfo": {
-                "name": "Aashni Shah",
-                "email": "contact@aashni.me"
-            },
-            "level": "Beginner",
-        	"previousSkillRequired": "HTML/CSS and some Javascript would be a bonus"
-        }
-    ]
+		{
+		"topic": "Learn AngularJS",
+		"description": "Learn AngularJS - From hello world to building your own directory of Star Wars",
+		"writeUp": "http://blog.aashni.me/2016/08/angularjs-an-introduction/",
+		"youtubeVideo": "",
+		"urlFiles": "https://github.com/Ladies-Storm-Hackathons/Tutorials/tree/master/learn-angularjs",
+		"location": "Online",
+		"date": "August 16, 2016",
+		"time": "5 pm EST",
+		"howToAttendURL": "https://www.facebook.com/events/1748805382027851/1752788888296167",
+		"speakersContactInfo": {
+			"name": "Aashni Shah",
+			"email": "contact@aashni.me",
+			"github": "https://github.com/aashnisshah"
+		},
+		"level": "Beginner",
+		"previousSkillRequired": "HTML/CSS and some Javascript would be a bonus",
+		"technologiesRequired": [
+			"laptop",
+			"internet",
+			"text editor",
+			"internet browser (preferrably chrome)",
+			"chrome plugin: ng-inspector for AngularJS",
+			"HTTPServer"
+		],
+		"frameworks": [{
+			"name": "Angular JS",
+			"uRL": "http://swapi.co/"
+		}, {
+			"name": "Bootstrap",
+			"uRL": "http://getbootstrap/"
+		}],
+		"APIs": [{
+			"name": "Star Wars API",
+			"uRL": "http://swapi.co/"
+		}]
+	}
+	]
 }
