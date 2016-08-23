@@ -65,7 +65,7 @@
 			{
 			"name": "Javascript",
 			"isRequired": false,
-			"notes": "It's a plus if your know Javascript"
+			"notes": "It's a plus if you know Javascript"
 			}
 		],
 		"frameworksUsed": [
