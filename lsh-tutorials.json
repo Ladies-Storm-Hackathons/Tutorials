@@ -1,6 +1,30 @@
 {
 	"title": "LSH Tutorials",
 	"githubURL": "https://github.com/Ladies-Storm-Hackathons/Tutorials",
+	"programmingLanguageDetails": [
+		{
+			"name": "HTML",
+			"url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+		},
+		{
+			"name": "CSS",
+			"url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+		},
+		{
+			"name": "Javascript",
+			"url": "https://developer.mozilla.org/en-US/docs/Web/Javascript"
+		}
+	],
+	"frameworkDetails": [
+		{
+			"name": "AngularJS",
+			"url": "https://angularjs.org"
+		},
+		{
+			"name": "Bootstrap",
+			"url": "http://getbootstrap/"
+		}
+	],
 	"tutorials": [
 		{
 		"topic": "Learn AngularJS",
@@ -14,11 +38,11 @@
 		"howToAttendURL": "https://www.facebook.com/events/1748805382027851/1752788888296167",
 		"speakersContactInfo": {
 			"name": "Aashni Shah",
+			"location": "Toronto, Canada",
 			"email": "contact@aashni.me",
 			"github": "https://github.com/aashnisshah"
 		},
 		"level": "Beginner",
-		"previousSkillRequired": "HTML/CSS and some Javascript would be a bonus",
 		"technologiesRequired": [
 			"laptop",
 			"internet",
@@ -27,17 +51,44 @@
 			"chrome plugin: ng-inspector for AngularJS",
 			"HTTPServer"
 		],
-		"frameworks": [{
-			"name": "Angular JS",
-			"uRL": "http://swapi.co/"
-		}, {
+		"programmingLanguageUsed": [
+			{
+			"name": "HTML",
+			"isRequired": true,
+			"notes": ""
+			},
+			{
+			"name": "CSS",
+			"isRequired": true,
+			"notes": ""
+			},
+			{
+			"name": "Javascript",
+			"isRequired": false,
+			"notes": "It's a plus if your know Javascript"
+			}
+		],
+		"frameworksUsed": [
+			{
+			"name": "AngularJS",
+			"isRequired": false,
+			"notes": ""
+			}, 
+			{
 			"name": "Bootstrap",
-			"uRL": "http://getbootstrap/"
-		}],
-		"APIs": [{
+			"isRequired": false,
+			"notes": ""
+			}
+		],
+		"apisUsed": [
+			{
 			"name": "Star Wars API",
-			"uRL": "http://swapi.co/"
-		}]
+			"isRequired": false,
+			"uRL": "http://swapi.co/",
+			"isDeveloperAccountRequired": false,
+			"notes": ""
+			}
+		]
 	}
 	]
 }
