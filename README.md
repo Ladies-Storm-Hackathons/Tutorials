@@ -11,3 +11,4 @@ Missed an LSH tutorial? Check out the source code & slides here.
 ### Upcoming Tutorials
 | Tutorial Title        | Location/Time | Speaker Contact Info | Level | Previous Skills Required |
 | :-------------------: | :-----------: | :------------------: | :---: | :----------------------: |
+| Intro to APIs & Build Your Own Twitter Bot | [Online, Sept 3rd @ 7pm CDT](https://www.facebook.com/events/293728037657127/) | alainakafkes@gmail.com | Beginner | Python knowledge is a bonus |
