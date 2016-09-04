@@ -4,9 +4,10 @@
 
 - Slides
 - [Code](https://github.com/alainakafkes/pommunism) **INCLUDES TUTORIAL CODE & POMMUNISM BOT FULL CODE: STAR THIS FOR SAFEKEEPING**
+- [Slides](https://docs.google.com/presentation/d/10IEN4VqW4Grv4E2KKuTpxsn4PsFw0LDZovJ_Gdp0XLs/edit?usp=sharing)
 - [Facebook Event](https://www.facebook.com/events/293728037657127/)
 - [Google Hangouts On Air link (for streaming during the tutorial)](https://plus.google.com/u/0/events/c6ifro34alt71m9rsidj0mki9k8)
-- YouTube link (for watching afterwards)
+- [YouTube link](https://www.youtube.com/watch?v=q3I4LreKcR0)
 
 ## Other Resources
 
