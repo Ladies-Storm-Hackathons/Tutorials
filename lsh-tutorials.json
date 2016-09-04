@@ -89,6 +89,22 @@
 			"notes": ""
 			}
 		]
-	}
+	},
+	{
+        "topic": "Introduction to APIs & Build Your Own Twitter Bot",
+        "urlFiles": "https://github.com/Ladies-Storm-Hackathons/Tutorials/tree/master/Intro-To-APIs-Twitter",
+        "location": "Online",
+        "date": "September 3, 2016",
+        "time": "7 pm CDT",
+        "howToAttendURL": "https://www.youtube.com/watch?v=q3I4LreKcR0",
+        "speakersContactInfo": {
+            "name": "Alaina Kafkes",
+            "email": "alainakafkes@gmail.com",
+            "twitter": "https://twitter.com/alainakafkes",
+            "linkedin": "https://linkedin.com/in/alainakafkes"
+        },
+        "level": "Beginner",
+        "previousSkillRequired": "Python background recommended, but not necessary"
+    }
 	]
 }
