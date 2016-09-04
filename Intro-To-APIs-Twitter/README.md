@@ -2,7 +2,6 @@
 
 ## Tutorial Contents
 
-- Slides
 - [Code](https://github.com/alainakafkes/pommunism) **INCLUDES TUTORIAL CODE & POMMUNISM BOT FULL CODE: STAR THIS FOR SAFEKEEPING**
 - [Slides](https://docs.google.com/presentation/d/10IEN4VqW4Grv4E2KKuTpxsn4PsFw0LDZovJ_Gdp0XLs/edit?usp=sharing)
 - [Facebook Event](https://www.facebook.com/events/293728037657127/)
