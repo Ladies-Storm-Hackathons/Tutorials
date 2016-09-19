@@ -12,4 +12,4 @@ Missed an LSH tutorial? Check out the source code & slides here.
 ### Upcoming Tutorials
 | Tutorial Title        | Location/Time | Speaker Contact Info | Level | Previous Skills Required |
 | :-------------------: | :-----------: | :------------------: | :---: | :----------------------: |
-
+| [How To Prep for the Job Hunt](https://www.facebook.com/events/1732511737001747/)      | [Online, Sept 20th @ 4PM EDT](https://www.facebook.com/events/1732511737001747/) | contact@aashni.me | All | Anyone looking for their first internship or a full time job |
