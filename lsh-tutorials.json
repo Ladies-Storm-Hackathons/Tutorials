@@ -105,6 +105,21 @@
         },
         "level": "Beginner",
         "previousSkillRequired": "Python background recommended, but not necessary"
+    },{
+        "topic": "Pair Programming PAIRadigms",
+        "urlFiles": "https://github.com/Ladies-Storm-Hackathons/Tutorials/tree/master/PairProgrammingPAIRadigms",
+        "location": "Online",
+        "date": "October 6, 2016",
+        "time": "7 pm CST",
+        "howToAttendURL": "https://hangouts.google.com/call/mxoxbpxtore4nkiwhw3jzzcr34e",
+        "speakersContactInfo": {
+            "name": "Kathryn Reagan",
+            "email": "kathryn.m.reagan@gmail.com",
+            "twitter": "https://twitter.com/nyrhtakk",
+            "linkedin": "Public Profilehttps://www.linkedin.com/in/kathrynreagan"
+        },
+        "level": "Beginner",
+        "previousSkillRequired": "Know how to write some code!"
     }
 	]
 }
