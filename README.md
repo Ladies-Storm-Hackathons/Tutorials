@@ -13,4 +13,4 @@ Missed an LSH tutorial? Check out the source code & slides here.
 ### Upcoming Tutorials
 | Tutorial Title        | Location/Time | Speaker Contact Info | Level | Previous Skills Required |
 | :-------------------: | :-----------: | :------------------: | :---: | :----------------------: |
-|[Pair Programming PAIRadigms](https://github.com/Ladies-Storm-Hackathons/Tutorials/tree/master/PairProgrammingPAIRadigms)| [Online, October 6 @ 7PM CST](https://hangouts.google.com/call/mxoxbpxtore4nkiwhw3jzzcr34e) | kathryn.m.reagan@gmail.com | Beginner | Know how to write some code (: |
+|[Pair Programming PAIRadigms](https://github.com/Ladies-Storm-Hackathons/Tutorials/tree/master/PairProgrammingPAIRadigms)| [Online, October 6 @ 7pm CDT](https://hangouts.google.com/call/mxoxbpxtore4nkiwhw3jzzcr34e) | kathryn.m.reagan@gmail.com | Beginner | Know how to write some code (: |
