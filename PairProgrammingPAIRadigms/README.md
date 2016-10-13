@@ -1,9 +1,8 @@
 # Pair Programming PAIRadigms
 
 ## Tutorial Contents
-- [Slides](https://docs.google.com/presentation/d/1xNQ3-SHbWA_oqDp-Cvdbh6VOjh4P1OccNeP_Ee52d7Q/edit?usp=sharing)
-- [Google Hangouts Link](https://hangouts.google.com/call/mxoxbpxtore4nkiwhw3jzzcr34e) -- watch during the talk 
-- Link to recording: coming soon
+- [Slides](https://drive.google.com/open?id=1d-EPrjLHNVV72u1JkEOLirRvr68jPF1W4CSrHTGmWx4)
+- [Link to Recording](https://drive.google.com/file/d/0B4oIwiIQoiI0TVdxUmRYS0pwckU/view?usp=sharing) -- sorry about the "Demo Mode" watermark #rookieMistake
 
 ## Additional Resources 
 - [Screenhero](https://screenhero.com/) -- email kathryn.m.reagan@gmail.com for an invite
