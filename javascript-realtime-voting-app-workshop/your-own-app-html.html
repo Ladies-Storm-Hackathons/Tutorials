@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- <html lang="pt" xmlns:fb="http://www.facebook.com/2008/fbml"> -->
+<head>
+    <meta charset="utf-8">
+    <meta property="og:title" content="My awesome webapp" />
+    <title>Realtime survey with PubNub, EON.js, and Facebook and Twitter</title>
+    <!--ajax, jquery-->
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!--PubNub from CDN -->
+
+    <!--EON-->
+    <script type="text/javascript" src="http://pubnub.github.io/eon/v/eon/0.0.10/eon.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://pubnub.github.io/eon/v/eon/0.0.10/eon.css" />
+    <!--style, CSS-->
+    <link rel="stylesheet" href="your-own-app-css.css" /> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+    <!--Twitter -->
+    <!-- <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script> -->
+</head>
+<body>
+<div id="fb-root"></div>
+	<!-- USE 'Asynchronous Loading' version, for IE8 to work
+	http://developers.facebook.com/docs/reference/javascript/FB.init/ -->
+	
+
+    <div class = "container">
+        <h2><font color = "#6600cc">Who would you vote for president?</font></h2>
+    </div>
+    <div id="chart"></div>
+    <script src="youe-own-app-js.js"></script> 
+    <div id ="logoDiv">
+        <img src = "spectralogo2.png" />
+    </div>
+      <div id = "twitterButton">
+<a href="https://twitter.com/intent/tweet?text=making+a+realtime+web+voting+app+with+@pubnub+at+spectra+hackathon+at+@youtube&hashtags=sospectra&via=lizziepika">Tweet</a>
+    </div>
+  </body>
+  <footer>
+  <p id = "leftP">PubNub <a href="https://twitter.com/hashtag/projecteon" target="_blank">#projecteon</a> demo by <a href="https://twitter.com/lizziepika" target="_blank">@lizziepika</a></p>
+  </footer>
+</html>
+
+  </footer>
+</html>
