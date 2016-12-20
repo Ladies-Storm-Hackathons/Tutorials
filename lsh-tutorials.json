@@ -107,7 +107,7 @@
         "previousSkillRequired": "Python background recommended, but not necessary"
     },
 
-{
+    {
         "topic": "Pair Programming PAIRadigms",
         "urlFiles": "https://github.com/Ladies-Storm-Hackathons/Tutorials/tree/master/PairProgrammingPAIRadigms",
         "location": "Online",
@@ -122,6 +122,22 @@
         },
         "level": "Beginner",
         "previousSkillRequired": "Know how to write some code!"
+    },
+    {
+        "topic": "git init: A Beginner's Guide to Git Workflow",
+        "urlFiles": "https://github.com/Ladies-Storm-Hackathons/Tutorials/tree/master/Intro-To-Git",
+        "location": "Online",
+        "date": "December 19, 2016",
+        "time": "8 pm CST",
+        "howToAttendURL": "https://www.youtube.com/watch?v=uTwLeN3-mjI",
+        "speakersContactInfo": {
+            "name": "Alaina Kafkes",
+            "email": "alainakafkes@gmail.com",
+            "twitter": "https://twitter.com/alainakafkes",
+            "linkedin": "https://linkedin.com/in/alainakafkes"
+        },
+        "level": "Beginner",
+        "previousSkillRequired": "Some Unix command line knowledge"
     }
-	]
+  ]
 }
